@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Google Maps demo using browser where location is detected ..</title>
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+function showPosition(){
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(displayMap, showError);
+    } else{
+        alert("Sorry, your browser does not support HTML5 geolocation.");
+    }
+}
+  
+
+  
+  // CALLBACK METHOD FOR DISPLAY
+function displayMap(position){
+
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;
+      var latitudelong = new google.maps.LatLng(latitude, longitude);
+      
+      var myVariable= {
+      
+         center : latitudelong,
+         zoom : 16,
+         mapTypeControl : true,
+         navigationControlOptions : { style:google.maps.NavigationControlStyle.SMALL}
+         }
+         
+        var mapDisplay = new google.maps.Map(document.getElementById("embedMap"),myVariable);
+        var marker = new google.maps.Marker({position:latitudelong, map:mapDisplay, title:"You are here"}); 
+      
+      
+      }
+
+// Define callback function for failed attempt
+function showError(error){
+ 
+   var err = document.getElementById('embedMap');
+        switch(error.code) {
+        case error.PERMISSION_DENIED:
+        err.innerHTML = "User denied the request for Geolocation."
+        break;
+        case error.POSITION_UNAVAILABLE:
+        err.innerHTML = "Location information is unavailable."
+        break;
+        case error.TIMEOUT:
+        err.innerHTML = "The request to get user location timed out."
+        break;
+        case error.UNKNOWN_ERROR:
+        err.innerHTML = "An unknown error occurred."
+        break;
+     
+}
+}
+</script>
+</head>
+<body>
+    <button type="button" onclick="showPosition();">Show My Position on Google Map</button>
+    <div id="embedMap" style="width: 400px; height: 300px;">
+        <!--Google map will be embedded here-->
+    </div>
+</body>
+</html> 
