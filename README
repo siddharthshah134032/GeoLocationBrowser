@@ -1,1 +1,34 @@
 README INSTRUCTIONS
+
+/*** Javascript implementation **/
+
+Geolocation API
+
+The geolocation API allows you to easily fetch the geographical position of a user.
+If the browser support Geolocation API, one can easily get the Longitude and Latitude by just using Javascript. 
+Geolocation API Browser Compatibility
+
+Geolocation functionality is supported in following browsers
+
+Google Chrome
+Internet Explorer 9 and higher
+Firefox 3.5 and higher
+Opera 10.6 and higher
+Safari 5
+
+Implementing the Geolocation API
+
+Steps to implement Geolocation is mentioned below.
+
+Check if user browser supports API or not
+Function to find user geolocation, if user browser supports the api.
+Display user location in map
+
+INSTRUCTIONS TO RUN THE CODE :-
+
+1) Download the copy of code or clone the repository on the local system.
+2) Open Geolocation.html file using any of the browser mentioned above and check the output on the map.
+
+Test cases to handle the code when user doesn't give permission are handled.
+
+
